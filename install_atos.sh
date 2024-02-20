@@ -5,8 +5,6 @@ INST=$PWD
 cd $LOC
 
 
-MIT_HOME=$LOC/NWMed
-
 git clone git@github.com:alessioinnocenti/NWMed.git
 cd NWMed
 git checkout atos
@@ -20,7 +18,7 @@ mkdir -p /ec/res4/scratch/$user/MITgcm_BFM/WORK_benchmark
 pwd
 cd NWMed
 
-cat $INST/chain/chain_env.sh | sed -e s_%%PATH%%_${MIT_HOME}_g \
+cat $INST/chain/chain_env.sh | sed -e s_%%PATH%%_${CUSTOM}_g \
             | sed -e s_%%USER%%_${user}_g > chain_env.sh
 source chain_env.sh
 
@@ -41,9 +39,10 @@ done
 make
 make install
 
+cd ..
 ./mit_setup_directories.ksh
 
-cd ../../
+cd ..
 
 
 for file in `ls *.sh`;do
@@ -53,5 +52,10 @@ for file in `ls *.sh`;do
 done
 
 
+# Edit executable
+# ---------------
+cd HOST/atos/bin
 
+
+ln -sf $LOC/$NAME/MITGCM_BUILD/mitgcmuv mitgcmuv_$SIZE
 
