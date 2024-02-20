@@ -69,10 +69,10 @@ cat $INST/configure_MITgcm_bfm.sh | sed s/%%PRESET%%/$PRESET/ > configure_MITgcm
 
 # Check for SIZE.h file
 # ---------------------
-if [ ! -f presest/$PRESET/SIZE.h ];then
-  lst=`ls presets/$PRESET/SIZE.h*`
-  echo $file
-fi
+#if [ ! -f presest/$PRESET/SIZE.h ];then
+#  lst=`ls presets/$PRESET/SIZE.h*`
+#  echo $file
+#fi
 
 
 # Load module
