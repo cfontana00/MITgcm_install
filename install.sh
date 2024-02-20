@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 #################################
 #     MIT gcm + bfm install     #
 #################################
@@ -7,7 +7,7 @@
 # Set arguments
 # -------------
 
-LOC=$HOME/MODEL
+LOC=$HOME/MODELaa
 NAME=MITGCM
 
 INST=$PWD
@@ -18,11 +18,12 @@ MITGCM_TAG=checkpoint66j
 
 # Check for directory
 # -------------------
-if [ ! -d `dirname $LOC` ];then
- echo "Error : create directory "`dirname $LOC`' first'
+if [ ! -d $LOC ];then
+ echo 'Error : create directory '$LOC' first'
  exit
 fi
 cd $LOC
+
 
 
 # Get MITgcm
