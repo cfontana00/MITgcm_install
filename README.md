@@ -1,9 +1,9 @@
 Install and compile MITgcm coupled to BFM on ECMWF Atos cluster.
 
+1/ Set parameters.sh
 
-1/ MODEL COMPILATION
 
-Set the configuration directory name "NAME" in install.sh and run :
+2/ MODEL COMPILATION
 
 $./install.sh
 
@@ -11,7 +11,6 @@ The model is compiled in $HOME/$NAME
 
 2/ CHAIN SETUP
 
-Set the configuration directory name "NAME" in install_atos.sh and run :
 $./install_atos.sh
 
 # Enjoy
