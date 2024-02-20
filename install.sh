@@ -7,12 +7,9 @@
 # Set arguments
 # -------------
 
-LOC=$HOME/MODELaa
-NAME=MITGCM
-
+source parameters.sh
 INST=$PWD
 DIR=$LOC/$NAME
-PRESET=NORTH_ADRIATIC
 MITGCM_TAG=checkpoint66j
 
 
@@ -70,10 +67,7 @@ cat $INST/configure_MITgcm_bfm.sh | sed s/%%PRESET%%/$PRESET/ > configure_MITgcm
 
 # Check for SIZE.h file
 # ---------------------
-#if [ ! -f presest/$PRESET/SIZE.h ];then
-#  lst=`ls presets/$PRESET/SIZE.h*`
-#  echo $file
-#fi
+ln -sf presets/$PRESET/SIZE.h_${size}p SIZE.h
 
 
 # Load module
@@ -91,5 +85,10 @@ cp -r $INST/presets/$PRESET $DIR/presets
 ./configure_MITgcm_bfm.sh
 
 ./builder_MITgcm_bfm_atos.sh -o MITgcm
+
+
+cd MITGCM_BUILD
+ln -sf mitgcmuv mitgcmuv_$SIZE
+
 
 
