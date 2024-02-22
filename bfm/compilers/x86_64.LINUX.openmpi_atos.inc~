@@ -1,0 +1,10 @@
+        NCLIB=  -L${NETCDFF_LIB} -lnetcdff -L${NETCDF_LIB} -lnetcdf
+
+        FC=mpifort $(OPENMP_FLAG)
+        LD=mpifort $(OPENMP_FLAG)
+	AR=ar
+	ARFLAGS=-r
+	CPPFLAGS=
+        FFLAGS_OPT= -g -fdefault-real-8 -funroll-all-loops -fcray-pointer -ftree-vectorize -ffree-line-length-152 -march=core-avx2
+	FFLAGS= ${FFLAGS_OPT}  -I${NETCDFF_INC}
+	LDFLAGS=${NCLIB}
