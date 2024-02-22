@@ -65,8 +65,14 @@ cp $INST/misc/x86_64.LINUX.intel_atos_bfm.inc bfm/compilers/x86_64.LINUX.intel_a
 
 cat $INST/configure_MITgcm_bfm.sh | sed s/%%PRESET%%/$PRESET/ > configure_MITgcm_bfm.sh
 
+# Copy preset
+# -----------
+cp -r $INST/presets/$PRESET $DIR/presets
+
 # Check for SIZE.h file
 # ---------------------
+echo $PWD
+ls
 ln -sf presets/$PRESET/SIZE.h_${SIZE}p presets/$PRESET/SIZE.h
 
 
@@ -74,9 +80,6 @@ ln -sf presets/$PRESET/SIZE.h_${SIZE}p presets/$PRESET/SIZE.h
 module load prgenv/intel intel-mpi
 
 
-# Copy preset
-# -----------
-cp -r $INST/presets/$PRESET $DIR/presets
 
 # Build
 # -----
