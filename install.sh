@@ -73,7 +73,7 @@ cp -r $INST/presets/$PRESET $DIR/presets
 # ---------------------
 echo $PWD
 ls
-ln -sf presets/$PRESET/SIZE.h_${SIZE}p presets/$PRESET/SIZE.h
+ln -sf presets/$PRESET/SIZE.h_${SIZE}p SIZE.h
 
 
 # Load module
