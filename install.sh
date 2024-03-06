@@ -38,6 +38,13 @@ git checkout main
 #cp -r $BFMDIR/bfm .
 cp -r $INST/bfm .
 
+#git clone git@github.com:CMCC-Foundation/BiogeochemicalFluxModel.git bfm
+#cd bfm
+#git checkout -b $BFM_BRANCH origin/$BFM_BRANCH
+#cd ..
+
+
+
 
 # Get coupler
 # -----------
@@ -71,8 +78,6 @@ cp -r $INST/presets/$PRESET $DIR/presets
 
 # Check for SIZE.h file
 # ---------------------
-echo $PWD
-ls
 ln -sf presets/$PRESET/SIZE.h_${SIZE}p SIZE.h
 
 
@@ -92,6 +97,20 @@ module load prgenv/intel intel-mpi
 
 cd MITGCM_BUILD
 ln -sf mitgcmuv mitgcmuv_$SIZE
+
+
+# Install utilities
+# -----------------
+
+# Install copernicusmarine 
+#ml python3
+#mkdir -p ~/venvs/
+#python3 -m venv ~/venvs/c
+#source ~/venvs/c/bin/activate
+#pip install copernicusmarine
+#copernicusmarine --version
+
+
 
 
 
